@@ -35,7 +35,6 @@ def get_num_classes(dataset):
 
 
 def get_model(model_name, num_classes, adaact):
-    
     if model_name == 'resnet18':
         if adaact:
             model = ResNet18(num_classes, all_acts)
@@ -48,10 +47,9 @@ def get_model(model_name, num_classes, adaact):
             model = VisionTransformer(num_classes)
 
     return model
-        
+
 
 def get_dataloader(dataset):
-
     # CIFAR-100 Dataset and DataLoader
     train_transform = transforms.Compose([
         transforms.RandomHorizontalFlip(),
