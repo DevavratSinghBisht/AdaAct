@@ -340,7 +340,7 @@ class VisionTransformer(nn.Module):
         >>> ViT = VisionTransformer(patch_size, max_len, embed_dim, classes, layers, channels, heads, activation, forward_expansion, dropout)
         >>> class_out, hidden_seq = ViT(inp)
     '''
-    def __init__(self, activation=nn.ReLU(), patch_size=4, max_len=100, embed_dim=512, classes=100, layers=8, channels=3, heads=8, forward_expansion=1, dropout=0.1):
+    def __init__(self, classes=100, activation=nn.ReLU(), patch_size=4, max_len=100, embed_dim=512, layers=8, channels=3, heads=8, forward_expansion=1, dropout=0.1):
         super(VisionTransformer, self).__init__()
         self.name = 'VisionTransformer'
         self.patch_size = patch_size

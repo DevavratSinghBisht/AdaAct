@@ -41,6 +41,8 @@ def train(model, dataloader, num_epochs, device, logger, filename):
 
             # Forward pass
             outputs = model(images)
+            if isinstance(outputs, tuple):
+                outputs = outputs[0]  # Use the prediction tensor
             loss = criterion(outputs, labels)
 
             # Backward pass and optimization

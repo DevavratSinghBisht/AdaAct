@@ -41,11 +41,13 @@ def get_model(model_name, num_classes, adaact):
             model = ResNet18(num_classes, all_acts)
         else:
             model = ResNet18(num_classes)
-    if model_name == 'visionTransformer':
+    elif model_name == 'vision_transformer':
         if adaact:
             model = VisionTransformer(num_classes, all_acts)
         else:
             model = VisionTransformer(num_classes)
+    else:
+        raise ValueError(f"Unsupported model type: {model_name}")
 
     return model
         
