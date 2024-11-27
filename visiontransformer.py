@@ -1,14 +1,8 @@
 # Commented out IPython magic to ensure Python compatibility.
+import math
 import torch
 from torch import nn
-from torch import functional as F
-from torch import optim
-import torchvision
-import torchvision.transforms as transforms
-from torch.utils.data import DataLoader
-from tqdm import tqdm
-import math
-import matplotlib.pyplot as plt
+
 from adaptive_activation import AdaAct
 
 # %matplotlib inline
@@ -81,7 +75,8 @@ class Attention(nn.Module):
         value = self._reshape_heads(value)
 
         # attention_scores: (batch_size * heads, seq_len, seq_len) | Softmaxed along the last dimension
-        attention_scores = self.softmax(torch.matmul(query, key.transpose(1, 2)))
+        d_k = query.size(-1)
+        attention_scores = self.softmax(torch.matmul(query, key.transpose(1, 2)) / math.sqrt(d_k))
 
         # out: (batch_size * heads, seq_len, reduced_dim)
         out = torch.matmul(self.dropout(attention_scores), value)
@@ -384,7 +379,7 @@ class VisionTransformer(nn.Module):
         class_out = self.classification_head(class_token)
         # class_out: (batch_size, classes)
 
-        return class_out, out
+        return class_out
 
 
 
