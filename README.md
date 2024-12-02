@@ -8,7 +8,7 @@ An adaptive activation function that combines multiple activation functions with
 ![alt text](media/resnet18_cifar10_epochs100.png)
 
 ### CIFAR100
-![alt text](media/resnet18_cifar10_epochs100.png)
+![alt text](media/resnet18_cifar100_epochs100.png)
 
 
 ## Results on Vision Transformer
