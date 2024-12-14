@@ -15,7 +15,7 @@ ResNet18 with CIFAR100: ```python train.py --model resnet18 --dataset cifar100``
 
 Vision Transformer with CIFAR10: ```python train.py --model vision_transformer --dataset cifar10```
 
-ResNet18 with CIFAR10: ```python train.py --model vision_transformer --dataset cifar100```
+Vision Transformer with CIFAR100: ```python train.py --model vision_transformer --dataset cifar100```
 
 
 ## Results on ResNet18
